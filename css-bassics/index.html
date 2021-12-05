@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>The Basic Language of the web: HTML</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-      <h1>📘 The Code Magazine [DEMO]</h1>
+      <h1>📘 The Code Magazine</h1>
       <nav>
         <a href="blog.html">Blog</a>
         <a href="#">Challenges</a>
@@ -24,7 +25,7 @@
             width="50"
             height="50"
           />
-          <p>
+          <p id="author">
             Posted by <strong>Laura Jones</strong> on Monday, June 21st 2021
           </p>
           <img
@@ -80,8 +81,8 @@
         <p>Hopefully you learned something new here. See you next time!</p>
       </article>
       <aside>
-        <h4>Realated Parts</h4>
-        <ul>
+        <h4>Related posts</h4>
+        <ul class="related">
           <li>
             <img
               src="./images/related-1.jpg"
@@ -90,7 +91,7 @@
               height="75"
             />
             <a href="#">How to Learn web Developement</a>
-            <p>By Beni Nduwimana</p>
+            <p class="related-author">By Beni Nduwimana</p>
           </li>
           <li>
             <img
@@ -100,7 +101,7 @@
               height="75"
             />
             <a href="#">The Unknown Powers of CSS3</a>
-            <p>By Aloys Nzosaba</p>
+            <p class="related-author">By Aloys Nzosaba</p>
           </li>
           <li>
             <img
@@ -110,14 +111,14 @@
               height="75"
             />
             <a href="#">Why JavaScript is Awesome</a>
-            <p>By Frank Uwiragiye</p>
+            <p class="related-author">By Frank Uwiragiye</p>
           </li>
         </ul>
       </aside>
     </main>
     <footer>
       <!--The future you might understand this joke someday lol😁🤣😹-->
-      <p>Copyright &copy; Janvier Uwiragiye 2027</p>
+      <p id="copyright">Copyright &copy; Janvier Uwiragiye 2027</p>
     </footer>
   </body>
 </html>
