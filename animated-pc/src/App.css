@@ -1,0 +1,116 @@
+:root {
+  --robin-egg-blue: #26c9c3;
+  --bunting: #191349;
+  --white: #fff;
+  --gallery: #f0f0f0;
+
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gallery);
+}
+
+.faux-box {
+  background: var(--robin-egg-blue);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.faux-box:after {
+  content: '';
+  display: block;
+  width: 55px;
+  height: 55px;
+  background: var(--bunting);
+  border-radius: 50%;
+  position: absolute;
+  right: 18px;
+  z-index: 1;
+  transition: all 0.25s var(--easing);
+}
+
+.show-password.faux-box:after {
+  height: 100%;
+  width: 100%;
+  right: 0;
+  border-radius: 10px;
+}
+
+.lock {
+  height: 40px;
+  width: 30px;
+  fill: var(--bunting);
+  margin-right: 15px;
+}
+
+.show-password .lock {
+  fill: var(--robin-egg-blue);
+  z-index: 4;
+}
+
+.password {
+  height: 50px;
+  width: 300px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-family: monospace;
+  margin-right: 10px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--white);
+  z-index: 3;
+}
+
+.password:focus {
+  outline: none;
+}
+
+.show-password .password {
+  color: var(--white);
+}
+
+/* button */
+.toggle {
+  height: 50px;
+  width: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+}
+
+.eyeball {
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+.eyelid {
+  transition: transform 0.25s var(--easing);
+  transform-origin: 65px 78px;
+}
+
+.show-password .eyelid {
+  transform: scaleY(-1);
+}
+
+.pupil {
+  clip-path: ellipse(30px 20px at 13px 14px);
+  transform: translateY(0);
+  transition: clip-path 0.25s var(--easing), transform 0.25s var(--easing);
+}
+
+.show-password .pupil {
+  clip-path: ellipse(30px 20px at 17px 57px);
+  transform: translateY(5px);
+}
