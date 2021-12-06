@@ -19,8 +19,16 @@ Each day will have a small coding time and commit after a challenge or a lesson.
   - [x] Follow a css/html tutorial.
 
 - ### Day Three
+
   - [x] Fix Day two work, fix bugs and refactor the code,
   - [x] Learn more html and css fundamentals.
-  - [] Create a navbar.
+  - [-] Create a navbar.
   - [x] Follow a react tutorial.
-  - [] Create a todo app with react.
+  - [-] Create a todo app with react.
+
+- ### Day Four
+  - [ ] Read about html meta tags.
+  - [ ] Finish Css Bascis By Jonas on Udemy.
+  - [ ] Start CSS basics by Angela Yu on Udemy.
+  - [ ] Follow a Dave Gray Tutorial on react.
+  - [ ] Do some python programming there.
