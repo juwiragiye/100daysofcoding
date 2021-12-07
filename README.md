@@ -27,8 +27,15 @@ Each day will have a small coding time and commit after a challenge or a lesson.
   - [ ] Create a todo app with react.
 
 - ### Day Four
+
   - [ ] Read about html meta tags.
   - [x] Finish Css Bascis By Jonas on Udemy.
   - [x] Start CSS basics by Angela Yu on Udemy.
   - [x] Follow a Dave Gray Tutorial on react.
   - [ ] Do some python programming there.
+
+- ### Day Five
+  - [ ] Finish css basics Angela Yu.
+  - [ ] Start css layouts.
+  - [ ] Understand css layouts.
+  - [ ] Learn something about react.
