@@ -1,40 +1,34 @@
 from tkinter import *
-from tkinter import ttk
-from conversion import from_miles_km, print_kms
 
 
-def setMessage(message):
-    return message
-
-root = Tk()
-root.title("Python GUI Program")
-root.minsize(width=800, height=600)
+def button_clicked():
+    print("I got clicked")
+    new_text = input.get()
+    my_label.config(text=new_text)
 
 
+window = Tk()
+window.title("My First GUI Program")
+window.minsize(width=500, height=300)
+window.config(padx=100, pady=200)
 
-label = ttk.Label(text="Miles to Km Converter", font=("Arial", 24, "bold"))
-label.pack()
+#Label
+my_label = Label(text="I Am a Label", font=("Arial", 24, "bold"))
+my_label.config(text="New Text")
+my_label.grid(column=0, row=0)
+my_label.config(padx=50, pady=50)
 
-label2 = ttk.Label(text="Miles to Km Converter", font=("Arial", 18, "bold"))
-label2.pack(side="left")
+#Button
+button = Button(text="Click Me", command=button_clicked)
+button.grid(column=1, row=1)
 
-inputMiles = ttk.Entry( width=20)
-inputMiles.pack(side="left")
+new_button = Button(text="New Button")
+new_button.grid(column=2, row=0)
 
-
-
-
-miles = inputMiles.get()
-
-
-label3 = ttk.Label(text=f"Kms are:  ", font=("Arial", 18, "bold"))
-label3.pack(side="bottom")
-def convert():
-    label3['text'] = print_kms(from_miles_km(float(inputMiles.get())), float(inputMiles.get()))
+#Entry
+input = Entry(width=10)
+print(input.get())
+input.grid(column=3, row=2)
 
 
-
-ttk.Button(text="Convert", command=convert).pack(side="left")
-
-if __name__ == "__main__":
-    root.mainloop()
+window.mainloop()
