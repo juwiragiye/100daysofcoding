@@ -1,3 +1,1 @@
-# 100daysofcoding
-
-100 Days of Coding comming soon
+# 100 days of coding, each day, another problem to solve
