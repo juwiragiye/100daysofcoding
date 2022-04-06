@@ -30,4 +30,4 @@ class Car:
         self.seats = kw.get("seats")
 
 my_car = Car(make="Nissan", model="Skyline")
-print(my_car.model)
+
