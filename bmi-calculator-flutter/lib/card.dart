@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class CardContent extends StatelessWidget {
@@ -18,13 +19,7 @@ class CardContent extends StatelessWidget {
         SizedBox(
           height: 16.0,
         ),
-        Text(
-          cardText,
-          style: TextStyle(
-              color: Colors.white24,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold),
-        ),
+        Text(cardText, style: kLabelStyle),
       ],
     );
   }

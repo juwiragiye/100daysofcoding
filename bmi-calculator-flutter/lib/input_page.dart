@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'card.dart';
-
-const double BOTTOMCONTAINERHEIGHT = 80.0;
-const Color ACTIVEBACKGROUNGCOLOR = Color.fromARGB(15, 159, 46, 17);
-const Color INACTIVEBACKGROUNDCOLOR = Color(0xFF1B328);
-const Color BOTTOMCONTAINERCOLOR = Color(0xFF87FCC4);
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,30 +11,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = INACTIVEBACKGROUNDCOLOR;
-  Color femaleCardColor = INACTIVEBACKGROUNDCOLOR;
+  Gender selectedGender;
+  int height = 180;
 
-  void updateColor({Gender gender}) {
-    switch (gender) {
-      case Gender.male:
-        {
-          maleCardColor = ACTIVEBACKGROUNGCOLOR;
-          femaleCardColor = INACTIVEBACKGROUNDCOLOR;
-        }
-        break;
-      case Gender.female:
-        {
-          femaleCardColor = ACTIVEBACKGROUNGCOLOR;
-          maleCardColor = INACTIVEBACKGROUNDCOLOR;
-        }
-        break;
-      default:
-        {
-          maleCardColor = INACTIVEBACKGROUNDCOLOR;
-          femaleCardColor = INACTIVEBACKGROUNDCOLOR;
-        }
-    }
-  }
+  void updateColor({Gender selectedGender}) {}
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +31,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(gender: Gender.male);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male
+                          ? kActiveBackground
+                          : kInactiveBacgroundColor,
                       cardChild: CardContent(
                         cardIconData: FontAwesomeIcons.mars,
                         cardText: "Male",
@@ -71,11 +49,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(gender: Gender.female);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? kActiveBackground
+                          : kInactiveBacgroundColor,
                       cardChild: CardContent(
                         cardIconData: FontAwesomeIcons.venus,
                         cardText: "Female",
@@ -88,19 +68,56 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              color: ACTIVEBACKGROUNGCOLOR,
+              color: kActiveBackground,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Height",
+                    textAlign: TextAlign.center,
+                    style: kLabelStyle,
+                  ),
+                  Row(
+                    textBaseline: TextBaseline.alphabetic,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: KBigLabelStyle,
+                      ),
+                      Text(
+                        "CM",
+                        style: kLabelStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    onChanged: (val) {
+                      setState(() {
+                        height = val.toInt();
+                      });
+                    },
+                    value: height.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: Colors.white,
+                    inactiveColor: kBottomContainerColor,
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
             child: ReusableCard(
-              color: ACTIVEBACKGROUNGCOLOR,
+              color: kActiveBackground,
             ),
           ),
           Container(
-            color: BOTTOMCONTAINERCOLOR,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: BOTTOMCONTAINERHEIGHT,
+            height: kBottomHeight,
           )
         ],
       ),
