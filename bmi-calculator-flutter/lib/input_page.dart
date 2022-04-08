@@ -93,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                     ],
                   ),
                   Slider(
-                    onChanged: (val) {
+                    onChanged: (double val) {
                       setState(() {
                         height = val.toInt();
                       });
@@ -111,6 +111,78 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               color: kActiveBackground,
+              cardChild: Row(
+                children: [
+                  Expanded(
+                    child: ReusableCard(
+                      color: kActiveBackground,
+                      cardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Weight",
+                              style: TextStyle(
+                                  color: Colors.white54,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              textBaseline: TextBaseline.alphabetic,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("50", style: KBigLabelStyle),
+                                Text(
+                                  "Kg",
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            ButtonRow()
+                          ]),
+                    ),
+                  ),
+                  Expanded(
+                    child: ReusableCard(
+                      color: kActiveBackground,
+                      cardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Age",
+                              style: TextStyle(
+                                  color: Colors.white54,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              textBaseline: TextBaseline.alphabetic,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("18", style: KBigLabelStyle),
+                                Text(
+                                  "",
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            ButtonRow(),
+                          ]),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
@@ -121,6 +193,35 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class ButtonRow extends StatelessWidget {
+  const ButtonRow({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: () => print("Add age"),
+          child: Icon(
+            Icons.add,
+            size: 50,
+          ),
+        ),
+        GestureDetector(
+          onTap: () => print("Drecease age"),
+          child: Icon(
+            Icons.remove,
+            size: 50,
+          ),
+        ),
+      ],
     );
   }
 }
