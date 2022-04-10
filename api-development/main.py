@@ -4,7 +4,6 @@ from fastapi import Body, FastAPI
 from pydantic import   BaseModel, UUID4
 
 
-
 app = FastAPI()
 
 class Post(BaseModel):
@@ -33,12 +32,12 @@ def root() :
     """
     return {"message": "Hello, world!"}
 
-@app.get("/posts", tags=["Posts"])
+@app.get("/posts")
 def read_all_posts() -> dict[str, List[PostRead]]:
     #  Get all posts. return list of posts
     return {"posts": posts}
 
-@app.get("/posts/{id}", tags=["Posts"])
+@app.get("/posts/{id}")
 def read_single_post(id: UUID4):
     # Get a single post. return a single post with the given post id
     for post in posts:
@@ -48,7 +47,7 @@ def read_single_post(id: UUID4):
 
     return {"post": "no posts yet"}
 
-@app.post("/posts", status_code=201, tags=["Posts"])
+@app.post("/posts", status_code=201)
 def write_single_post(post: Post = Body(...)):
   
     # Create a single post with the given post
@@ -56,7 +55,7 @@ def write_single_post(post: Post = Body(...)):
     posts.append(new_post)  
     return {"post": new_post}
 
-@app.patch("/posts/{id}", status_code=202, tags=["Posts"])
+@app.patch("/posts/{id}", status_code=202)
 def update_single_post(id: UUID4, body: PostUpdate = Body(...)):
     # Update a single post; returns new a post with the given post id and body.
 
@@ -72,7 +71,7 @@ def update_single_post(id: UUID4, body: PostUpdate = Body(...)):
             return {"post": updated_post}
     return {"post": None}
 
-@app.delete("/posts/{id}", status_code=204, tags=["Posts"])
+@app.delete("/posts/{id}", status_code=204)
 def delete_single_post(id: UUID4):
     #  Deletes a single post with the given
     for post in posts:
